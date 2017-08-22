@@ -3,7 +3,7 @@ package jzof;
 import java.util.HashMap;
 
 public class N3 {
-      public static void print(int []shu){
+      /*public static void print(int []shu){
     	  HashMap<Integer,Integer> m=new HashMap<Integer,Integer>();
     	  HashMap<Integer,Integer> f=new HashMap<Integer,Integer>();
     	  boolean flag=false;
@@ -22,9 +22,9 @@ public class N3 {
     	    	    }
     	    }
     	    
-      }
+      }*/
       public static void main(String []a){
     	  int []ss={2,3,1,0,2,5,3,3};
-             print(ss);    	  
+            // print(ss);    	  
       }
 }
