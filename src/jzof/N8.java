@@ -13,11 +13,11 @@ public class N8 {
     		return tempnode;
     	}
     	else if(node.parent!=null){//没有右子树
-    		if(node==node.parent.left&&node!=null){
+    		if(node==node.parent.left&&node!=null){//节点是左子树，则父子树就是下一个点
     			return node.parent;
     		}
     		
-    		else if(node==node.parent.right&&node!=null){
+    		else if(node==node.parent.right&&node!=null){//节点是右子树，则向上遍历找一个为左子树的点，他的父子树就是下一个点
     			pBinaryTreeNode temp=null;
     			while(node.parent!=null){
     				node=node.parent;
