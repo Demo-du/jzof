@@ -19,48 +19,41 @@ public class N12 {
 		if(mat==null||mat.length<=0||path==null){
 			return false;
 		}
-		int rows=mat.length;//长
-		int cols=mat[0].length;//高
+		int rows=mat.length;//行数
+		int cols=mat[0].length;//列数
 		boolean [][]visited=new boolean[rows][cols]; 
-		int pathLength=0;
-		for(int y=0;y<rows;y++){
-			for(int x=0;x<cols;x++){
+		for(int x=0;x<rows;x++){
+			for(int y=0;y<cols;y++){
 				//System.out.print(mat[y][x]);
-				if(hasPathCore(path, mat,visited,pathLength,y,x)){
+				visited[x][y]=false;
+			}
+		}
+		int pathLength=0;
+		for(int x=0;x<rows;x++){
+			for(int y=0;y<cols;y++){
+				//System.out.print(mat[y][x]);
+				if(hasPathCore(mat, x,y,visited,path,pathLength)){
 					return true;
 				}
 			}
 		}
 		return false;
 	}
-	public static boolean hasPathCore(String path,char [][]mat,boolean [][]visited,int pathLength,int x,int y){
+	public static boolean hasPathCore(char[][] mat,int x,int y,boolean[][] visited,String path,int pathLength){
+	//(String path,char [][]mat,boolean [][]visited,int pathLength,int x,int y){
 		boolean res=false;
 		if (pathLength >= path.length())
 			return true;
-		if(x>=0&&x<mat[0].length&&y>=0&&y<mat.length){
-			if(x>0)
-			System.out.println(mat[x-1][y]);
-			if(!(mat[x][y]==path.charAt(pathLength)&&!visited[x][y])){
-				return false;
-			}
+		if(x<0 || y<0 || x>=mat.length || y>=mat[0].length)
+			return false;
+		if(!visited[x][y] && mat[x][y]==path.charAt(pathLength)){
 			pathLength++;
 			
 			visited[x][y]=true;
-			boolean res1=false;
-			boolean res2=false;
-			boolean res3=false;
-			boolean res4=false;
-			
-          /*  res1=x<=0?false:hasPathCore(path, mat,visited,pathLength,x-1,y);
-            res2=x>=mat[0].length?false:hasPathCore(path, mat,visited,pathLength,x+1,y);
-            res3=y<=0?false:hasPathCore(path, mat,visited,pathLength,x,y-1);
-            res4=y>=mat.length?false:hasPathCore(path, mat,visited,pathLength,x,y+1);*/
-           //.out.println(x+" "+y);
-          //  System.out.println(res1+" "+res2+" "+res3+" "+res4);
-			res=hasPathCore(path, mat,visited,pathLength,x-1,y)
-					||hasPathCore(path, mat,visited,pathLength,x+1,y)
-					||hasPathCore(path, mat,visited,pathLength,x,y-1)
-					||hasPathCore(path, mat,visited,pathLength,x,y+1);
+			res=hasPathCore(mat,x-1,y,visited,path,pathLength)
+					||hasPathCore(mat,x+1,y,visited,path,pathLength)
+					||hasPathCore(mat,x,y-1,visited,path,pathLength)
+					||hasPathCore(mat,x,y+1,visited,path,pathLength);
            /* res=res1||res2||res3||res4;*/
 			if(!res){
 				--pathLength;
