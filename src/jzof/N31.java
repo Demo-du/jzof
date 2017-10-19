@@ -32,8 +32,7 @@ public class N31 {
     				break;
     			}
     			stack.push(pPush[index_push]);
-    			index_push++;
-    			
+    			index_push++;	
     		}
     		if(stack.peek()!=pPop[index_pop]){
     			break;
