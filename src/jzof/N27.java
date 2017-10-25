@@ -49,4 +49,5 @@ class TreeNode2{
 	TreeNode2(int value){
 		this.value=value;
 	}
+	TreeNode2(){}
 }
