@@ -22,7 +22,8 @@ public class N58_2 {
     		index2--;
     		index1++;
     	}
-    }
+    } 
+	
 	public String LeftRotate(String s,int n){
 		if(s==null||s.length()==0){
 			return null;
