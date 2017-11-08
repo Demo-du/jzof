@@ -22,8 +22,9 @@ public class N55 {
 		n3.right=n6;
 		N55 n55=new N55();
 		System.out.println(n55.TreeDepth(n1));
+		System.out.println(n55.IsBalanced(n1));
 	}
-	int TreeDepth(TreeNode2 r){
+	public int TreeDepth(TreeNode2 r){//二叉树深度
 		if(r==null){
 			return 0;
 		}
@@ -31,5 +32,23 @@ public class N55 {
 		int d_right=TreeDepth(r.right);
 		return (d_left>d_right)?(d_left+1):(d_right+1);
 	}
-
+    public boolean IsBalanced(TreeNode2 r,int[]Depth){
+    	if(r==null){
+    		return true;
+    	}
+    	int []left=new int[1];
+    	int []right=new int[1];
+    	if(IsBalanced(r.left,left)&&IsBalanced(r.right,right)){
+    		int dis=left[0]-right[0];
+    		if(dis<=1&&dis>=-1){
+    			Depth[0]=(left[0]>right[0])?left[0]:right[0]+1;
+    			return true;
+    		}
+    	}
+    	return false;
+    } 
+    public boolean IsBalanced(TreeNode2 r){
+    	int []depth=new int[1];
+    	return IsBalanced(r,depth);
+    }
 }
