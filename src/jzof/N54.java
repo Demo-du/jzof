@@ -38,7 +38,7 @@ public class N54 {
     	if(r.left!=null){
     		target=KthNodeCore(r.left,k);
     	}
-    	if(target==null){//左边没有符合要求的(左边k不等与1)
+    	if(target==null){//左边没有符合要求的(左边k不等与1)或子树为空
     		if(k[0]==1){
     			return r;
     		}
