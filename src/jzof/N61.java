@@ -14,6 +14,7 @@ public class N61 {
         N61 n61=new N61();
         System.out.println(n61.IsContinuous(num));
 	}
+	
     boolean IsContinuous(int []num){
     	if(num==null||num.length==0){
     		return false;
