@@ -20,7 +20,11 @@ public class N60 {
     		arr[0][i]=1;
     	}
     	for(int k=2;k<=num;k++){//2-num颗色子
+    		for(int i=0;i<k;i++){
+    			arr[1-flag][i]=0;
+    		}
     		for(int n=k;n<=6*k;n++){//求n出现的次数
+    			arr[1-flag][n]=0;
     			for(int j=1;j<=n&&j<=6;j++){
     				arr[1-flag][n]+=arr[flag][n-j];
     			}
