@@ -25,7 +25,7 @@ public class N26 {
 		TreeNode n10=new TreeNode(2);
 		n8.left=n9;
 		n8.right=n10;
-		System.out.println(HasSubtree(n1,n8));
+		System.out.println(HasSubtree(n1,n5));
 
 	}
     public static boolean HasSubtree(TreeNode r1,TreeNode r2){//找节点相同的部分
