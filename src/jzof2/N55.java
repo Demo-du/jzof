@@ -22,8 +22,10 @@ public class N55 {
 		n2.right=n5;
 		n5.left=n7;
 		n3.right=n6;
+		int []k={0};
 		N55 n55=new N55();
 		System.out.println(n55.getdep(n1));
+		System.out.println(n55.isbalenced(n1, k));
 	}
     public int getdep(TreeNode r){
     	if(r==null){
@@ -38,5 +40,21 @@ public class N55 {
     		dr=getdep(r.right);
     	}
     	return dl>dr?dl+1:dr+1;
+    }
+    public boolean isbalenced(TreeNode r,int[]dep){
+    	if(r==null){
+    		dep[0]=0;
+    		return true;
+    	}
+    	int[] dl={0};
+    	int []dr={0};
+    	if(isbalenced(r.left,dl)&&isbalenced(r.right,dr)){
+    		int dif=dl[0]-dr[0];
+    		if(dif<=1&&dif>=-1){
+    			dep[0]=1+(dl[0]>dr[0]?dl[0]:dr[0]);
+    			return true;
+    		}
+    	}
+    	return false;
     }
 }
