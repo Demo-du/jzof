@@ -1,0 +1,19 @@
+# Eclipse Project files
+.classpath
+.project
+.settings
+ 
+bin
+gen
+# Java
+*.class
+
+# IntelliJ IDEA Project files
+.idea
+*.iml
+*.ipr
+*.iws
+/out/
+.target
+**/target/
+target
