@@ -1,14 +1,14 @@
 package jzof4;
 
 public class TreeNode {
-    int value;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(){
+    public int value;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode(){
 
 
     }
-    TreeNode(int value){
+    public TreeNode(int value){
     	this.value=value;
     }
 }
